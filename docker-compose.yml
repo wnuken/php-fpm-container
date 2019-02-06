@@ -13,13 +13,3 @@ services:
         container_name: phpsvr
         networks:
             - servicesnet
-        environment:
-            PHP_SHOW_ERRORS: 0
-            PHP_FPM_PORT: 9000
-            PHP_XDEBUG_ENABLED: 0
-            PHP_XDEBUG_PORT: 8010
-            PHP_MAX_EXECUTION_TIME: 3600
-            PHP_UPLOAD_MAX_FILESIZE: 1024M
-            PHP_POST_MAX_SIZE: 1024M
-            PHP_ALLOW_URL_FOPEN: "On"
-            PHP_MEMORY_LIMIT: 1024M

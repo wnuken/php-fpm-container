@@ -70,6 +70,7 @@ WORKDIR /var/www/localhost/htdocs
 
 # Secundary apps
 # RUN apk add pdftk
+COPY php-fpm.conf /etc/php7/php-fpm.conf
 
 ENTRYPOINT ["php-fpm7"]
 
