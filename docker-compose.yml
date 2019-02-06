@@ -6,34 +6,11 @@ networks:
         driver: bridge
 
 services:
-    nginx:
-        image: nginx:latest
-        container_name: nginxsvr
-        ports:
-            - "80:80"
-            - "443:443"
-            #- "8010:8010"
-        networks:
-            - servicesnet
-        volumes:
-            - ../../paginas:/var/www/localhost/htdocs
-            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-            - ./nginx/fastcgi_params:/etc/nginx/fastcgi_params
-            - ./nginx/scgi_params:/etc/nginx/scgi_params
-            - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
-            - ./nginx/sites:/etc/nginx/conf.d
-            - ./nginx/logs:/var/log/nginx
-            - ./nginx/certificates:/sites/ssl
-        links:
-            - php
     php:
         build:
             context: ./docker/files/php
             dockerfile: Dockerfile
         container_name: phpsvr
-        volumes:
-            - ../../paginas:/var/www/localhost/htdocs
-            - ./php:/etc/php7
         networks:
             - servicesnet
         environment:
